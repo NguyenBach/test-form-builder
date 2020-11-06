@@ -17,7 +17,7 @@ export default {
   },
   created() {
     let id = this.$route.params.id;
-    fetch('http://localhost/test-form-builder/test.php?form_id=' + id)
+    fetch('http://nguyenquangbach.com/test.php?form_id=' + id)
         .then(response => response.json())
         .then(data => {
           this.data = data.data

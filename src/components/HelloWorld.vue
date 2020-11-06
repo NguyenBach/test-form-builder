@@ -42,7 +42,7 @@ export default {
       this.formData = formData;
       data.append('form_id', id);
       data.append('form_data', formData);
-      fetch('http://localhost/test-form-builder/test.php', {
+      fetch('http://nguyenquangbach.com/test.php', {
         method: 'POST',
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -54,7 +54,7 @@ export default {
     },
     generateCode() {
       this.show = true;
-      this.link = 'http://localhost:8080/#/view/' + this.formId;
+      this.link = 'http://nguyenquangbach.com/#/view/' + this.formId;
       this.scriptCode = template(this.formId);
       // eslint-disable-next-line no-undef
       const markup = $("<div/>");

@@ -1,6 +1,6 @@
 $(document).ready(() => {
     let formData = []
-    fetch('http://localhost/test-form-builder/test.php?form_id=' + $('#fb-render').data('formid'))
+    fetch('http://nguyenquangbach.com/test.php?form_id=' + $('#fb-render').data('formid'))
         .then(response => response.json())
         .then(data => {
             formData = data.data
