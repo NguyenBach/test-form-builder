@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+</head>
+<body>
+
+<div class="fb-render">
+
+</div>
+
+
+<script>
+    jQuery(function ($) {
+        $('.fb-render').formRender({
+            formData: [
+                {
+                    "type": "date",
+                    "required": false,
+                    "label": "Date Field",
+                    "className": "form-control row-1 col-md-6",
+                    "name": "date-1604590526791",
+                    "access": false
+                },
+                {
+                    "type": "number",
+                    "required": false,
+                    "label": "Number",
+                    "className": "form-control row-1 col-md-6",
+                    "name": "number-1604590533421",
+                    "access": false
+                },
+                {
+                    "type": "text",
+                    "required": false,
+                    "label": "Text Field",
+                    "className": "row-1 form-control col-md-5",
+                    "name": "text-1604590537867",
+                    "access": false,
+                    "subtype": "text"
+                },
+                {
+                    "type": "textarea",
+                    "required": false,
+                    "label": "Text Area",
+                    "className": "form-control col-md-5 row-1",
+                    "name": "textarea-1604590570966",
+                    "access": false,
+                    "subtype": "textarea"
+                }
+            ]
+        });
+    });
+
+
+</script>
+</body>
+</html>

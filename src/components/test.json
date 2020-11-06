@@ -1,0 +1,36 @@
+[
+  {
+    "type": "date",
+    "required": false,
+    "label": "Date Field",
+    "className": "form-control row-1 col-md-6",
+    "name": "date-1604590526791",
+    "access": false
+  },
+  {
+    "type": "number",
+    "required": false,
+    "label": "Number",
+    "className": "form-control row-1 col-md-6",
+    "name": "number-1604590533421",
+    "access": false
+  },
+  {
+    "type": "text",
+    "required": false,
+    "label": "Text Field",
+    "className": "row-1 form-control col-md-5",
+    "name": "text-1604590537867",
+    "access": false,
+    "subtype": "text"
+  },
+  {
+    "type": "textarea",
+    "required": false,
+    "label": "Text Area",
+    "className": "form-control col-md-5 row-1",
+    "name": "textarea-1604590570966",
+    "access": false,
+    "subtype": "textarea"
+  }
+]
