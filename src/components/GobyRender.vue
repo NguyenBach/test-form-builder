@@ -1,6 +1,6 @@
 <template>
   <div>
-
+      {{html}}
   </div>
 </template>
 
@@ -8,26 +8,51 @@
 export default {
   name: "GobyRender",
   props: [
-    'data'
+    'data',
+    'kind'
   ],
+  data() {
+    return {
+      html: ''
+    }
+  },
+  created() {
+  },
   mounted() {
-
     let formData = this.data;
     this.$nextTick(function () {
       // eslint-disable-next-line no-undef
-      // const wrap = $(this.$el);
-      // const formRender = wrap.formRender();
-      // eslint-disable-next-line no-undef
-      $(this.$el).formRender({formData: formData});
-      // formRender.actions.render(formData)
+      if(this.kind === 'render'){
+        // eslint-disable-next-line no-undef
+        $(this.$el).formRender({formData: formData});
+      }else{
+        // eslint-disable-next-line no-undef
+        const markup = $("<div/>");
+        markup.formRender({ formData });
+
+        // eslint-disable-next-line no-undef
+        this.html = markup.formRender('html');
+      }
+
     });
   },
   watch: {
     // eslint-disable-next-line no-unused-vars
     data: function (newData, oldData) {
       // eslint-disable-next-line no-undef
-      $(this.$el).formRender({formData: newData});
-    }
+      if(this.kind === 'render'){
+        // eslint-disable-next-line no-undef
+        $(this.$el).formRender({formData: newData});
+      }else{
+        // eslint-disable-next-line no-undef
+        const markup = $("<div/>");
+        markup.formRender({ newData });
+
+        // eslint-disable-next-line no-undef
+        this.html = markup.formRender('html');
+      }
+    },
+
   }
 }
 </script>

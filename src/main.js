@@ -5,6 +5,12 @@ import App from './App.vue'
 import {BootstrapVue, IconsPlugin} from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import VueRouter from 'vue-router'
+import ViewForm from "@/ViewForm";
+import Dashboard from "@/Dashboard";
+import FormBuilder from "@/FormBuilder";
+
+Vue.use(VueRouter)
 
 global.jQuery = require('jquery');
 var $ = global.jQuery;
@@ -22,6 +28,26 @@ Vue.use(IconsPlugin)
 // Vue.use(VueFormBuilderPlugin)
 Vue.config.productionTip = false
 
+const routes = [
+    {
+        path: '/',
+        component: Dashboard
+    },
+    {
+        path: '/view/:id',
+        component: ViewForm
+    },
+    {
+        path: '/builder',
+        component: FormBuilder
+    }
+]
+
+const router = new VueRouter({
+    routes: routes
+})
+
 new Vue({
     render: h => h(App),
+    router
 }).$mount('#app')

@@ -3,60 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+
 </head>
 <body>
 
-<div class="fb-render">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<div class="rendered-form">
+    <div class=""><p access="false" id="control-4532136">Paragraph</p></div>
+    <div class="formbuilder-radio-group form-group field-radio-group-1604647256193"><label
+            for="radio-group-1604647256193" class="formbuilder-radio-group-label">Radio Group</label>
+        <div class="radio-group">
+            <div class="formbuilder-radio"><input name="radio-group-1604647256193" access="false"
+                                                  id="radio-group-1604647256193-0" value="option-1" type="radio"><label
+                    for="radio-group-1604647256193-0">Option 1</label></div>
+            <div class="formbuilder-radio"><input name="radio-group-1604647256193" access="false"
+                                                  id="radio-group-1604647256193-1" value="option-2" type="radio"><label
+                    for="radio-group-1604647256193-1">Option 2</label></div>
+            <div class="formbuilder-radio"><input name="radio-group-1604647256193" access="false"
+                                                  id="radio-group-1604647256193-2" value="option-3" type="radio"><label
+                    for="radio-group-1604647256193-2">Option 3</label></div>
+        </div>
+    </div>
+    <div class="formbuilder-select form-group field-select-1604647256943"><label for="select-1604647256943"
+                                                                                 class="formbuilder-select-label">Select</label><select
+            class="form-control" name="select-1604647256943" id="select-1604647256943">
+        <option value="option-1" selected="true" id="select-1604647256943-0">Option 1</option>
+        <option value="option-2" id="select-1604647256943-1">Option 2</option>
+        <option value="option-3" id="select-1604647256943-2">Option 3</option>
+    </select></div>
 </div>
-
-
-<script>
-    jQuery(function ($) {
-        $('.fb-render').formRender({
-            formData: [
-                {
-                    "type": "date",
-                    "required": false,
-                    "label": "Date Field",
-                    "className": "form-control row-1 col-md-6",
-                    "name": "date-1604590526791",
-                    "access": false
-                },
-                {
-                    "type": "number",
-                    "required": false,
-                    "label": "Number",
-                    "className": "form-control row-1 col-md-6",
-                    "name": "number-1604590533421",
-                    "access": false
-                },
-                {
-                    "type": "text",
-                    "required": false,
-                    "label": "Text Field",
-                    "className": "row-1 form-control col-md-5",
-                    "name": "text-1604590537867",
-                    "access": false,
-                    "subtype": "text"
-                },
-                {
-                    "type": "textarea",
-                    "required": false,
-                    "label": "Text Area",
-                    "className": "form-control col-md-5 row-1",
-                    "name": "textarea-1604590570966",
-                    "access": false,
-                    "subtype": "textarea"
-                }
-            ]
-        });
-    });
-
-
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="goby-action.js"></script>
 </body>
 </html>
