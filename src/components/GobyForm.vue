@@ -18,6 +18,7 @@ import GobyRender from "@/components/GobyRender";
 export default {
   name: "GobyForm",
   components: {GobyRender},
+  props: ['fields'],
 
   data() {
     return {
@@ -50,9 +51,48 @@ export default {
     }
   },
   mounted() {
+    console.log(this.fields);
     this.$nextTick(function () {
       const vm = this;
+      let templates = {
+        text: function (fieldData) {
+          return {
+            field: '<input style="color: red">',
+            onRender: function () {
+              const style = fieldData.style;
+              console.log(style)
+            }
+          };
+        },
+        phone: function (fieldData) {
+          return {
+            field: '<input type="tel" class="' + fieldData.class + '" id="' + fieldData.name + '">',
+            onRender: function () {
+              console.log(1)
+            }
+          };
+        }
+      };
       let options = {
+        disableFields: [
+          "autocomplete",
+          'checkbox-group',
+          'date',
+          'file',
+          'hidden',
+          'number',
+          'radio-group',
+          'select',
+          'text',
+          'textarea',
+          'starRating'
+        ],
+        disabledAttrs: ['name'],
+        subtypes: {
+          text: ['email', 'tel']
+        },
+        fields: this.fields,
+        templates: templates,
         onSave: function (evt, formData) {
           vm.$emit('onSave', formData)
           vm.$emit('onGenerate');

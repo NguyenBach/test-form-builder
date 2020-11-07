@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <GobyRender kind="render" :data="data"></GobyRender>
+  <div style="width: 60%; border: 2px solid black">
+    <GobyRender  kind="render" :data="data"></GobyRender>
   </div>
 </template>
 

@@ -1,15 +1,15 @@
 <template>
-  <div class="hello">
+  <div class="hello" style="width: 70%; border: 2px solid black;margin: 20px auto;padding: 20px">
     <img height="100px" alt="Vue logo" src="../assets/index.png">
-    <GobyForm @onSave="saveForm" @onGenerate="generateCode"></GobyForm>
+    <GobyForm :fields="fields" @onSave="saveForm" @onGenerate="generateCode"></GobyForm>
     <div class="generateCode" v-if="show">
       <label for="">Link</label>
       <input type="text" :value="link" style="width: 100%">
       <label for="">Script code</label>
-      <textarea style="width:100%;height: 100px;margin: 20px" v-model="scriptCode"></textarea>
+      <textarea style="width:100%;height: 100px;margin: 20px 0" v-model="scriptCode"></textarea>
 
       <label for="">HTML code</label>
-      <textarea style="width:100%;height: 100px; margin: 20px" v-model="htmlCode"></textarea>
+      <textarea style="width:100%;height: 100px; margin: 20px 0" v-model="htmlCode"></textarea>
     </div>
   </div>
 </template>
@@ -31,7 +31,8 @@ export default {
         show: false,
         link: '',
         scriptCode: '',
-        htmlCode: ''
+        htmlCode: '',
+        fields: []
       }
   ),
   methods: {
@@ -63,10 +64,77 @@ export default {
       let html = markup.formRender('html');
       console.log(this.formData)
       this.htmlCode = htmlTemplate(html);
+    },
+    makeValues(fieldValues) {
+      if (!fieldValues) {
+        return [];
+      }
+      let value = [];
+      for (let field of fieldValues) {
+        value.push({
+          label: field.value,
+          value: field.key,
+          selected: false
+        })
+      }
+      return value;
+    },
+    makeFormFields(serverFields) {
+      let fields = [];
+      for (let field of serverFields) {
+        fields.push({
+          subtype: field.type,
+          label: field.name,
+          className: 'form-control',
+          name: field.content_tag,
+          values: this.makeValues(field.additional_data),
+          type: 'text',
+          style: 'dadsf'
+        });
+      }
+      return fields;
     }
   },
   created() {
-
+    let fields = [
+      {
+        "id": "1",
+        "list_id": "1",
+        "name": "Email",
+        "content_tag": "email",
+        "type": "email",
+        "is_required": "1",
+        "is_default": "1",
+        "is_visible": "0",
+        "default_value": null,
+        "additional_data": null,
+      },
+      {
+        "id": "2",
+        "list_id": "1",
+        "name": "Registration ID",
+        "content_tag": "registration_id",
+        "type": "text",
+        "is_required": "0",
+        "is_default": "1",
+        "is_visible": "0",
+        "default_value": null,
+        "additional_data": null,
+      },
+      {
+        "id": "3",
+        "list_id": "1",
+        "name": "Phone Number",
+        "content_tag": "phone_number",
+        "type": "phone",
+        "is_required": "0",
+        "is_default": "1",
+        "is_visible": "0",
+        "default_value": null,
+        "additional_data": null,
+      }
+    ]
+    this.fields = this.makeFormFields(fields)
   }
 }
 </script>
