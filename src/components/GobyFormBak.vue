@@ -13,7 +13,7 @@
 
 <script>
 
-import GobyRender from "@/components/GobyRender";
+import GobyRender from "@/components/GobyRenderBak";
 
 export default {
   name: "GobyForm",
@@ -27,34 +27,30 @@ export default {
     }
   },
   methods: {
-    stringToSlug(str) {
-      str = str.replace(/^\s+|\s+$/g, ""); // trim
-      str = str.toLowerCase();
-
-      // remove accents, swap ñ for n, etc
-      var from = "åàáãäâèéëêìíïîòóöôùúüûñç·/_,:;";
-      var to = "aaaaaaeeeeiiiioooouuuunc------";
-
-      for (var i = 0, l = from.length; i < l; i++) {
-        str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
-      }
-
-      str = str
-          .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
-          .replace(/\s+/g, "-") // collapse whitespace and replace by -
-          .replace(/-+/g, "-"); // collapse dashes
-
-      return str;
-    },
     generate() {
       this.$emit('onGenerate');
     }
   },
   mounted() {
-    console.log(this.fields);
     this.$nextTick(function () {
       const vm = this;
+      const jQuery = global.jQuery;
       let templates = {
+        button: function (fieldData) {
+          return {
+            onRender: function () {
+              fieldData.className += 'test'
+              return fieldData
+            }
+          };
+        }
+      };
+      let layoutTemplate = {
+        label: function (label, data) {
+          return jQuery('<label class="bright" style="margin-top:15px;" />')
+              .attr('for', data.id)
+              .append(label);
+        }
       };
       let options = {
         disableFields: [
@@ -84,6 +80,7 @@ export default {
           data.name = vm.stringToSlug(data.label);
           return data;
         },
+        layoutTemplates: layoutTemplate,
         actionButtons: [
           {
             id: 'preview',
@@ -104,12 +101,12 @@ export default {
             }
           },
           {
-            id: 'add_field',
-            className: 'btn btn-default',
-            label: 'Add New Field',
+            id: 'add_fields',
+            className: 'btn btn-danger',
+            label: 'New Field',
             type: 'button',
             events: {
-              click: showPreviewHtml
+              click: addFields
             }
           }
         ]
@@ -127,6 +124,13 @@ export default {
         vm.formData = formBuilder.actions.getData();
         vm.type = 'html'
         vm.$bvModal.show('modal-1')
+      }
+
+      function addFields() {
+        let data = formBuilder.actions.getData();
+        let button = data.find(el => el.type === 'button');
+        button.className += 'abcd';
+        formBuilder.actions.setData(data);
       }
     });
   }

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --name goby-form 'src/components/GobyForm.vue'",
+    "build": "vue-cli-service build --target wc --name goby-form 'src/components/GobyFormBak.vue'",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -19,7 +19,7 @@
     "jquery-ui": "^1.12.1",
     "jquery-ui-sortable": "^1.0.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.9"
+    "vue-slugify": "^0.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -31,7 +31,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
       "node": true
     },

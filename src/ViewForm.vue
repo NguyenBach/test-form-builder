@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GobyRender from "@/components/GobyRender";
+import GobyRender from "@/components/GobyRenderBak";
 
 export default {
   name: "ViewForm",

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import GobyForm from "@/components/GobyForm";
+import GobyForm from "@/components/GobyFormBak";
 import template from './scriptTemplate'
 import htmlTemplate from './htmlTemplate'
 
