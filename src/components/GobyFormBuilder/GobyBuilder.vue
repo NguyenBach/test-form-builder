@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div id="fb-editor" ref="fb">
 
@@ -5,6 +6,8 @@
 </template>
 
 <script>
+import layoutTemplates from './layoutTemplates'
+
 export default {
   name: "GobyBuilder",
   components: {},
@@ -38,7 +41,9 @@ export default {
       return {
         button: (fieldData) => {
           return {
+            field: '<span id="' + fieldData.name + '">',
             onRender: function () {
+              console.log(1234124)
               fieldData.className += 'test'
               return fieldData
             }
@@ -74,7 +79,7 @@ export default {
         ],
         disableFields: ["autocomplete", 'checkbox-group', 'date', 'file', 'hidden', 'number', 'radio-group',
           'select', 'text', 'textarea', 'starRating'],
-        disabledAttrs: ['name','access'],
+        disabledAttrs: ['name', 'access'],
         subtypes: {
           text: ['email', 'tel']
         },
@@ -82,7 +87,26 @@ export default {
         onSave: vm.onSave,
         onAddField: vm.onAddField,
         onCloseFieldEdit: vm.onChange,
+        layoutTemplates: layoutTemplates(),
         controlPosition: 'left',
+        typeUserAttrs: {
+          text: {
+            row: {
+              label: "Row",
+              value: 1
+            }
+          },
+          header: {
+            className: {
+              label: 'ClassName',
+              value: 'gb-header'
+            },
+            style: {
+              label: 'Style',
+              value: 'color:red'
+            }
+          }
+        },
         actionButtons: [
           // {
           //   id: 'preview',

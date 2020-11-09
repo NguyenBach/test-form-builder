@@ -3,11 +3,11 @@
     <div class="col-md-8">
       <b-tabs content-class="mt-3">
         <b-tab title="Form Builder" active>
-          <GobyBuilder @fieldRemoved="formChange" :fields="fields" :form-data="formData"
+          <GobyBuilder :fields="fields" :form-data="formData"
                        @onFormChange="formChange"></GobyBuilder>
         </b-tab>
         <b-tab title="Style">
-
+          <GobyStyle></GobyStyle>
         </b-tab>
       </b-tabs>
 
@@ -21,10 +21,11 @@
 <script>
 import GobyBuilder from "@/components/GobyFormBuilder/GobyBuilder";
 import GobyRenderer from "@/components/GobyFormBuilder/GobyRenderer";
+import GobyStyle from "@/components/GobyFormBuilder/GobyStyle";
 
 export default {
   name: "Builder",
-  components: {GobyRenderer, GobyBuilder},
+  components: {GobyStyle, GobyRenderer, GobyBuilder},
   data() {
     return {
       formData: null,
@@ -42,7 +43,7 @@ export default {
         fields.push({
           subtype: field.type,
           label: field.name,
-          className: 'form-control',
+          className: 'form-control ',
           name: field.content_tag,
           values: this.makeValues(field.additional_data),
           type: 'text',
