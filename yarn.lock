@@ -8231,6 +8231,11 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-slugify@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vue-slugify/-/vue-slugify-0.1.0.tgz#4ee33c8fb99c784e1408f92eae0ccf6bac1d7bcb"
+  integrity sha1-TuM8j7mceE4UCPkurgzPa6wde8s=
+
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"

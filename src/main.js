@@ -8,7 +8,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import ViewForm from "@/ViewForm";
 import Dashboard from "@/Dashboard";
-import FormBuilder from "@/FormBuilder";
+import Builder from "@/views/Builder";
 
 Vue.use(VueRouter)
 
@@ -20,6 +20,8 @@ $.extend(require('formBuilder'));
 window.$ = $;
 require('formBuilder/dist/form-render.min.js');
 
+var VueSlugify = require('vue-slugify')
+Vue.use(VueSlugify)
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
@@ -39,7 +41,7 @@ const routes = [
     },
     {
         path: '/builder',
-        component: FormBuilder
+        component: Builder
     }
 ]
 
