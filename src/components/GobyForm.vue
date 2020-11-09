@@ -55,23 +55,6 @@ export default {
     this.$nextTick(function () {
       const vm = this;
       let templates = {
-        text: function (fieldData) {
-          return {
-            field: '<input style="color: red">',
-            onRender: function () {
-              const style = fieldData.style;
-              console.log(style)
-            }
-          };
-        },
-        phone: function (fieldData) {
-          return {
-            field: '<input type="tel" class="' + fieldData.class + '" id="' + fieldData.name + '">',
-            onRender: function () {
-              console.log(1)
-            }
-          };
-        }
       };
       let options = {
         disableFields: [
@@ -115,6 +98,15 @@ export default {
             id: 'preview_html',
             className: 'btn btn-warning',
             label: 'Preview HTML',
+            type: 'button',
+            events: {
+              click: showPreviewHtml
+            }
+          },
+          {
+            id: 'add_field',
+            className: 'btn btn-default',
+            label: 'Add New Field',
             type: 'button',
             events: {
               click: showPreviewHtml

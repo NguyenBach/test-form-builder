@@ -88,8 +88,9 @@ export default {
           className: 'form-control',
           name: field.content_tag,
           values: this.makeValues(field.additional_data),
-          type: 'text',
-          style: 'dadsf'
+          attrs:{
+            type: 'text'
+          }
         });
       }
       return fields;
